@@ -48,7 +48,7 @@
         }
 
         button {
-            background-color: #008000;
+            background-color: #00008B;
             color: white;
             border: none;
             cursor: pointer;
@@ -56,14 +56,14 @@
         }
 
         button:hover {
-            background-color: #008000;
+            background-color: #00008B;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Recherche de Trajet</h1>
-        <form action="index.php?controller=passager&action=rechercherTrajet" method="POST">
+        <form action="offreTrajet.php" method="POST">
             <label for="depart">Ville de départ :</label>
             <select id="depart" name="depart" required>
                 <option value="" disabled selected>-- Sélectionnez une ville --</option>

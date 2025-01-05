@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérification de l'unicité de l'email et du CIN
     if (empty($errors)) {
         try {
-            $stmt = $pdo->prepare("SELECT id FROM registration WHERE email = ? OR cin = ?");
+            $stmt = $pdo->prepare("SELECT id FROM conducteurs WHERE email = ? OR cin = ?");
             $stmt->execute([$email, $cin]);
             if ($stmt->rowCount() > 0) {
                 $errors[] = "L'email ou le CIN est déjà utilisé";
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES (?, ?, ?, ?, ?, ?)
             ");
             $stmt->execute([$nom, $contact, $email, $photo, $cin, $hashed_password]);
-
+            
             $success = true;
             header("Location: login.php");
             exit;
