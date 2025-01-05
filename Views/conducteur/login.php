@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // Requête pour récupérer le conducteur par email
-        $stmt = $pdo->prepare("SELECT id, nom, prenom, password FROM conducteurs WHERE email = ?");
+        $stmt = $pdo->prepare("SELECT id, nom , password FROM conducteurs WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch();
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_type'] = 'conducteur';
             $_SESSION['nom'] = $user['nom'];
-            $_SESSION['prenom'] = $user['prenom'];
+    
 
             // Redirection vers le tableau de bord
             header('Location: dashboard.php');
